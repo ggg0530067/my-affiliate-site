@@ -15,11 +15,29 @@
       text-align: center;
       color: #444;
     }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .tab {
+      padding: 10px 20px;
+      margin: 0 5px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .tab.active {
+      background-color: #ff5a3d;
+      color: #fff;
+      border-color: #ff5a3d;
+    }
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
-      margin-top: 20px;
     }
     .product {
       background: #fff;
@@ -62,127 +80,116 @@
     .product a:hover {
       background-color: #e14a2c;
     }
-    .product .cart-btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 16px;
-      background-color: #4caf50;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-left: 10px;
-    }
-    .product .cart-btn:hover {
-      background-color: #45a049;
-    }
     footer {
       text-align: center;
       margin-top: 40px;
       font-size: 14px;
       color: #666;
     }
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <h1>彤彤的私藏選物</h1>
 
-  <div class="product-grid">
+  <!-- 分類頁籤 -->
+  <div class="tabs">
+    <div class="tab active" onclick="showCategory('cat-litter')">貓砂</div>
+    <div class="tab" onclick="showCategory('toys')">玩具</div>
+    <div class="tab" onclick="showCategory('clothes')">衣服</div>
+    <div class="tab" onclick="showCategory('cat-beds')">貓窩</div>
+    <div class="tab" onclick="showCategory('cleaning')">清潔</div>
+  </div>
+
+  <!-- 商品分類頁面 -->
+  <div id="cat-litter" class="product-grid">
     <!-- 模擬 10 個商品 -->
     <div class="product">
-      <img src="https://via.placeholder.com/300" alt="商品圖1">
-      <h2>商品名稱 1</h2>
+      <img src="https://via.placeholder.com/300" alt="貓砂商品圖1">
+      <h2>貓砂商品 1</h2>
       <p>商品描述 1</p>
-      <p class="price">NT$ 1,299</p>
+      <p class="price">NT$ 299</p>
       <p class="rating">⭐⭐⭐⭐☆ (4.5/5)</p>
       <a href="#" target="_blank">查看商品</a>
-      <a href="#" class="cart-btn">加入購物車</a>
     </div>
+    <!-- 其餘 9 個商品... -->
+  </div>
+
+  <div id="toys" class="product-grid hidden">
+    <!-- 模擬 10 個商品 -->
     <div class="product">
-      <img src="https://via.placeholder.com/300" alt="商品圖2">
-      <h2>商品名稱 2</h2>
-      <p>商品描述 2</p>
+      <img src="https://via.placeholder.com/300" alt="玩具商品圖1">
+      <h2>玩具商品 1</h2>
+      <p>商品描述 1</p>
+      <p class="price">NT$ 199</p>
+      <p class="rating">⭐⭐⭐⭐⭐ (5/5)</p>
+      <a href="#" target="_blank">查看商品</a>
+    </div>
+    <!-- 其餘 9 個商品... -->
+  </div>
+
+  <div id="clothes" class="product-grid hidden">
+    <!-- 模擬 10 個商品 -->
+    <div class="product">
+      <img src="https://via.placeholder.com/300" alt="衣服商品圖1">
+      <h2>衣服商品 1</h2>
+      <p>商品描述 1</p>
+      <p class="price">NT$ 399</p>
+      <p class="rating">⭐⭐⭐⭐ (4/5)</p>
+      <a href="#" target="_blank">查看商品</a>
+    </div>
+    <!-- 其餘 9 個商品... -->
+  </div>
+
+  <div id="cat-beds" class="product-grid hidden">
+    <!-- 模擬 10 個商品 -->
+    <div class="product">
+      <img src="https://via.placeholder.com/300" alt="貓窩商品圖1">
+      <h2>貓窩商品 1</h2>
+      <p>商品描述 1</p>
       <p class="price">NT$ 899</p>
       <p class="rating">⭐⭐⭐⭐⭐ (5/5)</p>
       <a href="#" target="_blank">查看商品</a>
-      <a href="#" class="cart-btn">加入購物車</a>
     </div>
+    <!-- 其餘 9 個商品... -->
+  </div>
+
+  <div id="cleaning" class="product-grid hidden">
+    <!-- 模擬 10 個商品 -->
     <div class="product">
-      <img src="https://via.placeholder.com/300" alt="商品圖3">
-      <h2>商品名稱 3</h2>
-      <p>商品描述 3</p>
-      <p class="price">NT$ 1,599</p>
-      <p class="rating">⭐⭐⭐⭐ (4/5)</p>
-      <a href="#" target="_blank">查看商品</a>
-      <a href="#" class="cart-btn">加入購物車</a>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300" alt="商品圖4">
-      <h2>商品名稱 4</h2>
-      <p>商品描述 4</p>
-      <p class="price">NT$ 2,099</p>
-      <p class="rating">⭐⭐⭐⭐⭐ (5/5)</p>
-      <a href="#" target="_blank">查看商品</a>
-      <a href="#" class="cart-btn">加入購物車</a>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300" alt="商品圖5">
-      <h2>商品名稱 5</h2>
-      <p>商品描述 5</p>
-      <p class="price">NT$ 799</p>
-      <p class="rating">⭐⭐⭐☆ (3.5/5)</p>
-      <a href="#" target="_blank">查看商品</a>
-      <a href="#" class="cart-btn">加入購物車</a>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300" alt="商品圖6">
-      <h2>商品名稱 6</h2>
-      <p>商品描述 6</p>
-      <p class="price">NT$ 1,299</p>
+      <img src="https://via.placeholder.com/300" alt="清潔商品圖1">
+      <h2>清潔商品 1</h2>
+      <p>商品描述 1</p>
+      <p class="price">NT$ 499</p>
       <p class="rating">⭐⭐⭐⭐☆ (4.5/5)</p>
       <a href="#" target="_blank">查看商品</a>
-      <a href="#" class="cart-btn">加入購物車</a>
     </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300" alt="商品圖7">
-      <h2>商品名稱 7</h2>
-      <p>商品描述 7</p>
-      <p class="price">NT$ 1,999</p>
-      <p class="rating">⭐⭐⭐⭐⭐ (5/5)</p>
-      <a href="#" target="_blank">查看商品</a>
-      <a href="#" class="cart-btn">加入購物車</a>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300" alt="商品圖8">
-      <h2>商品名稱 8</h2>
-      <p>商品描述 8</p>
-      <p class="price">NT$ 2,499</p>
-      <p class="rating">⭐⭐⭐⭐ (4/5)</p>
-      <a href="#" target="_blank">查看商品</a>
-      <a href="#" class="cart-btn">加入購物車</a>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300" alt="商品圖9">
-      <h2>商品名稱 9</h2>
-      <p>商品描述 9</p>
-      <p class="price">NT$ 1,099</p>
-      <p class="rating">⭐⭐⭐⭐☆ (4.5/5)</p>
-      <a href="#" target="_blank">查看商品</a>
-      <a href="#" class="cart-btn">加入購物車</a>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300" alt="商品圖10">
-      <h2>商品名稱 10</h2>
-      <p>商品描述 10</p>
-      <p class="price">NT$ 699</p>
-      <p class="rating">⭐⭐⭐☆ (3.5/5)</p>
-      <a href="#" target="_blank">查看商品</a>
-      <a href="#" class="cart-btn">加入購物車</a>
-    </div>
+    <!-- 其餘 9 個商品... -->
   </div>
 
   <footer>
     <p>聯絡我們：<a href="mailto:contact@tongtongshop.com">contact@tongtongshop.com</a></p>
     <p>© 2025 彤彤的選物推薦</p>
   </footer>
+
+  <script>
+    function showCategory(categoryId) {
+      // 隱藏所有分類
+      document.querySelectorAll('.product-grid').forEach(grid => {
+        grid.classList.add('hidden');
+      });
+
+      // 顯示選中的分類
+      document.getElementById(categoryId).classList.remove('hidden');
+
+      // 更新頁籤樣式
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelector(`.tab[onclick="showCategory('${categoryId}')"]`).classList.add('active');
+    }
+  </script>
 </body>
 </html>
